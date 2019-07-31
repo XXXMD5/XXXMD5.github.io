@@ -10,6 +10,12 @@
 
     <!--Description-->
     
+        <meta name="description" content="##JavaScript用法
+12345//一般用于head中&amp;lt;script src=&#34;外部js文件&#34;&amp;gt; &amp;lt;/script&amp;gt; //一般放在body中使用&amp;lt;script&amp;gt; js代码 &amp;lt;/script&amp;gt;
+
+##JavaScript输出
+1234567891">
+    
 
     <!--Author-->
     
@@ -18,7 +24,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="xxxmd5">
+        <meta property="og:title" content="初识 JavaScript输出 和 HTML事件">
     
 
     <!--Open Graph Description-->
@@ -29,7 +35,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -40,7 +46,7 @@
 
     <!-- Title -->
     
-    <title>Archives - xxxmd5</title>
+    <title>初识 JavaScript输出 和 HTML事件 - xxxmd5</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -127,9 +133,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -137,43 +141,96 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">Archives</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2019/07/31/javaScript/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        初识 JavaScript输出 和 HTML事件
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/07/31/javaScript/">
+                初识 JavaScript输出 和 HTML事件
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-31</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>##JavaScript用法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一般用于head中</span></span><br><span class="line">&lt;script src=<span class="string">"外部js文件"</span>&gt; &lt;/script&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment">//一般放在body中使用</span></span><br><span class="line">&lt;script&gt; js代码 &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>##JavaScript输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>windows.alert() 弹窗警告</span><br><span class="line">	alert(<span class="number">1</span>)  ;  alert(<span class="string">"string"</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span><span class="built_in">document</span>.write() 将内容写到HTML文档中</span><br><span class="line">	write() 方法可向文档写入 HTML 表达式或JavaScript 代码。</span><br><span class="line">    可列出多个参数(exp1,exp2,exp3,...) ，它们将按顺序被追加到文档中</span><br><span class="line">            </span><br><span class="line"><span class="number">3.</span>操作HTML元素</span><br><span class="line">    获取HTML元素：<span class="keyword">var</span> A = <span class="built_in">document</span>.getElementById(id) 等<span class="keyword">get</span>方法</span><br><span class="line">    </span><br><span class="line">    修改元素中内容： A.innerHTML = "赋予新值"</span><br><span class="line"></span><br><span class="line">4. console.log() 写入到浏览器的控制台</span><br><span class="line"></span><br><span class="line">	console.log(result) 将result结果显示在浏览器console中</span><br></pre></td></tr></table></figure>
+
+<p>##JavaScript事件</p>
+<p>###HTML事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">页面完成加载、input字段改变、按钮被点击时</span><br><span class="line">事件触发时，JavaScript可以执行一些代码</span><br><span class="line">HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 元素。</span><br><span class="line"></span><br><span class="line">单引号</span><br><span class="line">&lt;HTML-element event=<span class="string">'JavaScript 代码'</span>&gt;</span><br><span class="line">    </span><br><span class="line">双引号</span><br><span class="line">&lt;HTML-element event=”JavaScript 代码“&gt;</span><br><span class="line">    </span><br><span class="line">实例</span><br><span class="line"><span class="comment">//给 button 标签添加 onclick 属性</span></span><br><span class="line">&lt;button onclick=<span class="string">"getElementById('demo').innerHTML=Date()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=<span class="string">"this.innerHTML=Date()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=<span class="string">"displayDate()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###常见HTML事件</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onchange</td>
+<td>HTML元素改变</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td>用户点击HTML元素</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>用户在一个HTML元素上移动鼠标</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>用户从一个HTML元素上移开鼠标</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>用户安县键盘按键</td>
+</tr>
+<tr>
+<td>onload</td>
+<td>浏览器已完成页面的加载</td>
+</tr>
+</tbody></table>
+<p>###JavaScript事件用法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事件可以用于处理表单验证，用户输入，用户行为及浏览器动作:</span><br><span class="line">	页面加载时触发事件</span><br><span class="line">	页面关闭时触发事件</span><br><span class="line">	用户点击按钮执行动作</span><br><span class="line">	验证用户输入内容的合法性等等 ...</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2019/08/01/javascript-dom/">
-        <span class="archive-date">
-            Aug 2019
-        </span>
-        JavaScript HTML DOM
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/29/phpmyadmin/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        phpMyAdmin 4.8 本地文件包含漏洞
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
