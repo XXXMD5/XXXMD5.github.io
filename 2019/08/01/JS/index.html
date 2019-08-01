@@ -10,11 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="##JavaScript用法
-12345//一般用于head中&amp;lt;script src=&#34;外部js文件&#34;&amp;gt; &amp;lt;/script&amp;gt; //一般放在body中使用&amp;lt;script&amp;gt; js代码 &amp;lt;/script&amp;gt;
-
-##JavaScript输出
-1234567891">
+        <meta name="description" content="window对象1234567window.document.getElementById()document.cookie 	//获取当前页面中所有的 cookie 值window.open(&#39;url&#39;)  //新窗口打开url, url为空时打开空窗口window.close()		//关闭当前">
     
 
     <!--Author-->
@@ -24,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="初识 JavaScript输出 和 HTML事件">
+        <meta property="og:title" content="常用 JS BOM">
     
 
     <!--Open Graph Description-->
@@ -46,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>初识 JavaScript输出 和 HTML事件 - xxxmd5</title>
+    <title>常用 JS BOM - xxxmd5</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -126,8 +122,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">初识 JavaScript输出 和 HTML事件</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-07-31</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">常用 JS BOM</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-01</p>
         </div>
     </div>
 
@@ -147,51 +143,15 @@
                     
 
                     <!-- Main Post Content -->
-                    <p>##JavaScript用法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一般用于head中</span></span><br><span class="line">&lt;script src=<span class="string">"外部js文件"</span>&gt; &lt;/script&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment">//一般放在body中使用</span></span><br><span class="line">&lt;script&gt; js代码 &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+                    <h3 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.document.getElementById()</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.cookie 	<span class="comment">//获取当前页面中所有的 cookie 值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.open(<span class="string">'url'</span>)  <span class="comment">//新窗口打开url, url为空时打开空窗口</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.close()		<span class="comment">//关闭当前窗口</span></span><br></pre></td></tr></table></figure>
 
-<p>##JavaScript输出</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>windows.alert() 弹窗警告</span><br><span class="line">	alert(<span class="number">1</span>)  ;  alert(<span class="string">"string"</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span><span class="built_in">document</span>.write() 将内容写到HTML文档中</span><br><span class="line">	write() 方法可向文档写入 HTML 表达式或JavaScript 代码。</span><br><span class="line">    可列出多个参数(exp1,exp2,exp3,...) ，它们将按顺序被追加到文档中</span><br><span class="line">            </span><br><span class="line"><span class="number">3.</span>操作HTML元素</span><br><span class="line">    获取HTML元素：<span class="keyword">var</span> A = <span class="built_in">document</span>.getElementById(id) 等<span class="keyword">get</span>方法</span><br><span class="line">    </span><br><span class="line">    修改元素中内容： A.innerHTML = "赋予新值"</span><br><span class="line"></span><br><span class="line">4. console.log() 写入到浏览器的控制台</span><br><span class="line"></span><br><span class="line">	console.log(result) 将result结果显示在浏览器console中</span><br></pre></td></tr></table></figure>
+<h3 id="window-location"><a href="#window-location" class="headerlink" title="window.location"></a>window.location</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location 对象在编写时可不使用 <span class="built_in">window</span> 这个前缀</span><br><span class="line"></span><br><span class="line">#location 输出当前页面的所有 属性 和 值</span><br><span class="line"></span><br><span class="line">location.hostname	<span class="comment">//获取web主机的域名</span></span><br><span class="line"></span><br><span class="line">location.href		<span class="comment">//获取当前页面整个 URL 值</span></span><br></pre></td></tr></table></figure>
 
-<p>##JavaScript事件</p>
-<p>###HTML事件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">页面完成加载、input字段改变、按钮被点击时</span><br><span class="line">事件触发时，JavaScript可以执行一些代码</span><br><span class="line">HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 元素。</span><br><span class="line"></span><br><span class="line">单引号</span><br><span class="line">&lt;HTML-element event=<span class="string">'JavaScript 代码'</span>&gt;</span><br><span class="line">    </span><br><span class="line">双引号</span><br><span class="line">&lt;HTML-element event=”JavaScript 代码“&gt;</span><br><span class="line">    </span><br><span class="line">实例</span><br><span class="line"><span class="comment">//给 button 标签添加 onclick 属性</span></span><br><span class="line">&lt;button onclick=<span class="string">"getElementById('demo').innerHTML=Date()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=<span class="string">"this.innerHTML=Date()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=<span class="string">"displayDate()"</span>&gt;现在的时间是?&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-计时事件"><a href="#JavaScript-计时事件" class="headerlink" title="JavaScript 计时事件"></a>JavaScript 计时事件</h3><h4 id="setInterval-方法"><a href="#setInterval-方法" class="headerlink" title="setInterval() 方法"></a>setInterval() 方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#间隔指定的毫秒数不停地执行指定的代码</span><br><span class="line">[Usage]:</span><br><span class="line">		<span class="built_in">window</span>.setInterval(<span class="string">"javascript function"</span>,milliseconds);</span><br><span class="line">		#可以直接使用 setInterval()</span><br><span class="line">        </span><br><span class="line">[实例]：</span><br><span class="line">		每三秒弹出 <span class="string">"hello"</span> ：</span><br><span class="line">		setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">"Hello"</span>)&#125;,<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
 
-<p>###常见HTML事件</p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>onchange</td>
-<td>HTML元素改变</td>
-</tr>
-<tr>
-<td>onclick</td>
-<td>用户点击HTML元素</td>
-</tr>
-<tr>
-<td>onmouseover</td>
-<td>用户在一个HTML元素上移动鼠标</td>
-</tr>
-<tr>
-<td>onmouseout</td>
-<td>用户从一个HTML元素上移开鼠标</td>
-</tr>
-<tr>
-<td>onkeydown</td>
-<td>用户安县键盘按键</td>
-</tr>
-<tr>
-<td>onload</td>
-<td>浏览器已完成页面的加载</td>
-</tr>
-</tbody></table>
-<p>###JavaScript事件用法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事件可以用于处理表单验证，用户输入，用户行为及浏览器动作:</span><br><span class="line">	页面加载时触发事件</span><br><span class="line">	页面关闭时触发事件</span><br><span class="line">	用户点击按钮执行动作</span><br><span class="line">	验证用户输入内容的合法性等等 ...</span><br></pre></td></tr></table></figure>
+<h4 id="setTimeout-方法"><a href="#setTimeout-方法" class="headerlink" title="setTimeout() 方法"></a>setTimeout() 方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在设定时间到后执行一次指定的代码</span><br><span class="line">[Usage]:</span><br><span class="line">		<span class="built_in">window</span>.setTimeout(<span class="string">"javascript function"</span>, milliseconds);</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-Cookie"><a href="#JS-Cookie" class="headerlink" title="JS Cookie"></a>JS Cookie</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Cookie 以 键名/ 键值对 形式存储</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.cookie		<span class="comment">//获取页面cookie信息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JavaScript 可以使用 <span class="built_in">document</span>.cookie 属性来创建 、读取、及删除 cookie。</span><br><span class="line"></span><br><span class="line">创建 cookie 如下所示：</span><br><span class="line">	<span class="built_in">document</span>.cookie=<span class="string">"username=John Doe"</span>;</span><br><span class="line"></span><br><span class="line">修改 cookie:</span><br><span class="line">	<span class="built_in">document</span>.cookie=<span class="string">"username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>;</span><br><span class="line">	#旧 cookie 将被覆盖</span><br><span class="line"></span><br><span class="line">删除 cookie:</span><br><span class="line">	#只需要设置 expires 参数为以前的时间即可</span><br><span class="line">	<span class="built_in">document</span>.cookie = <span class="string">"username=; expires=Thu, 01 Jan 1970 00:00:00 GMT"</span>;</span><br></pre></td></tr></table></figure>
 
 
                     
