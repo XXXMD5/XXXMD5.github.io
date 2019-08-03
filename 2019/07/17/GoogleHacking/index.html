@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="site功能：搜索指定的域名的网页内容，可以用来搜索子域名、跟此域名相关的内容示例：
+site:zhihu.com              搜索跟 zhihu.com 有关的网页
+“web安全” site:zhihu.om       搜索zhihu.com跟web安全相关的内容
+“sql注入” ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxmd5">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="GoogleHacking">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XMD5 STUDY BLOG">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>GoogleHacking - XMD5 STUDY BLOG</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="XMD5 STUDY BLOG">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="XMD5 STUDY BLOG">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="主页">
+                    主页
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="归档">
+                    归档
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">GoogleHacking</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-07-17</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+
+                    <!-- Main Post Content -->
+                    <h3 id="site"><a href="#site" class="headerlink" title="site"></a>site</h3><h4 id="功能：搜索指定的域名的网页内容，可以用来搜索子域名、跟此域名相关的内容"><a href="#功能：搜索指定的域名的网页内容，可以用来搜索子域名、跟此域名相关的内容" class="headerlink" title="功能：搜索指定的域名的网页内容，可以用来搜索子域名、跟此域名相关的内容"></a>功能：搜索指定的域名的网页内容，可以用来搜索子域名、跟此域名相关的内容</h4><p>示例：</p>
+<p>site:zhihu.com              搜索跟 zhihu.com 有关的网页</p>
+<p>“web安全” site:zhihu.om       搜索zhihu.com跟web安全相关的内容</p>
+<p>“sql注入” site:csdn.net       在csdn.net搜索跟sql注入相关的内容</p>
+<p>“教程” site:pan.baidu.com     在百度网盘搜索教程</p>
+<h3 id="filetype"><a href="#filetype" class="headerlink" title="filetype"></a>filetype</h3><h4 id="功能：搜索指定类型文件"><a href="#功能：搜索指定类型文件" class="headerlink" title="功能：搜索指定类型文件"></a>功能：搜索指定类型文件</h4><p>示例：</p>
+<p>“web安全” filetype:pdf                搜索跟web安全相关的pdf文件</p>
+<p>nmap filetype:ppt                   搜索跟nmap相关的ppt文件</p>
+<p>site:csdn.net filetype:pdf          搜索csdn网站中的PDF文件</p>
+<p>filetype:pdf site:<a href="http://www.51cto.com" target="_blank" rel="noopener">www.51cto.com</a>     搜索51cto网站中的PDF文件</p>
+<h3 id="inurl"><a href="#inurl" class="headerlink" title="inurl"></a>inurl</h3><h4 id="功能：搜索URL网址中存在特定关键字的网页，可以用来搜寻存有注入点的网站"><a href="#功能：搜索URL网址中存在特定关键字的网页，可以用来搜寻存有注入点的网站" class="headerlink" title="功能：搜索URL网址中存在特定关键字的网页，可以用来搜寻存有注入点的网站"></a>功能：搜索URL网址中存在特定关键字的网页，可以用来搜寻存有注入点的网站</h4><p>示例：</p>
+<p>inurl:.php?id=              搜索网址中有“php?id”的网页</p>
+<p>inurl:view.php=?            搜索网址中有“view.php=”的网页</p>
+<p>inurl:.jsp?id=              搜索网址中有“jsp?id”的网页</p>
+<p>inurl:.asp?id=              搜索网址中有“asp?id”的网页</p>
+<p>inurl:/admin/login.php      搜索网址中有“/admin/login.php”的网页</p>
+<p>inurl:login                 搜索网址中有“login”的网页</p>
+<h3 id="intitle"><a href="#intitle" class="headerlink" title="intitle"></a>intitle</h3><h4 id="功能：搜索标题存在特定关键字的网页"><a href="#功能：搜索标题存在特定关键字的网页" class="headerlink" title="功能：搜索标题存在特定关键字的网页"></a>功能：搜索标题存在特定关键字的网页</h4><p>示例：</p>
+<p>intitle:后台登录                        搜索网页标题是“后台登录”的相关网页</p>
+<p>intitle:后台管理 filetype:php           搜索网页标题是“后台管理”的php网页</p>
+<p>intitle:index of “keywords”             搜索此关键字相关的索引目录信息</p>
+<p>intitle:index of “parent directory”     搜索根目录相关的索引目录信息</p>
+<p>intitle:index of “password”             搜索password相关的索引目录信息</p>
+<p>intitle:index of “login”                搜索login相关的索引目录信息</p>
+<p>intitle:index of “admin”                搜索admin相关的索引目录信息</p>
+<h3 id="intext"><a href="#intext" class="headerlink" title="intext"></a>intext</h3><h4 id="功能：-搜索正文存在特定关键字的网页"><a href="#功能：-搜索正文存在特定关键字的网页" class="headerlink" title="功能： 搜索正文存在特定关键字的网页"></a>功能： 搜索正文存在特定关键字的网页</h4><p>示例：</p>
+<p>intext:Powered by Discuz            搜索Discuz论坛相关页面</p>
+<p>intext:Powered by wordpress         搜索WordPress制作的博客网址</p>
+<p>intext:Powered by <em>CMS              搜索</em>CMS相关的页面</p>
+<p>intext:Powered by XXX inurl:login   搜索此类网址的后台登录页面</p>
+<h3 id="country"><a href="#country" class="headerlink" title="country"></a>country</h3><h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><p>-keyword    强制结果不要出现此关键字， 例如：电影 -黑客</p>
+<p><em>ketword    模糊搜索，强制结果包含此关键字， 例如：电影 一个*决定</em></p>
+<p>“keyword”   强制搜索结果包含此关键字，例如：书籍 “web安全“</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3178292787,3619418245&fm=26&gp=0.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="xxxmd5">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            本人很懒
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2019/08/02/php/">Php 基础</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/01/JS/">常用 JS BOM</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/01/javascript-dom/">JavaScript HTML DOM</a>
+        </p>
+    
+        <p>
+            <a href="/2019/07/31/javaScript/">初识 JavaScript输出 和 HTML事件</a>
+        </p>
+    
+        <p>
+            <a href="/2019/07/30/LINUX用户管理和文件权限/">LINUX用户管理和文件权限</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/XXXMD5" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                Take the world! | All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

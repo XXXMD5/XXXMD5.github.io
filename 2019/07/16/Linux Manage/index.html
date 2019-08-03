@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Linux常用指令和文件管理1234567891011121314151617	符号常识：               #   root用户               $   普通用户               ;    分隔命令，可连续执行多个命令               &amp;gt;   输">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxmd5">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Linux 常用指令和文件管理">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XMD5 STUDY BLOG">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Linux 常用指令和文件管理 - XMD5 STUDY BLOG</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="XMD5 STUDY BLOG">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="XMD5 STUDY BLOG">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="主页">
+                    主页
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="归档">
+                    归档
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Linux 常用指令和文件管理</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-07-16</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="Linux常用指令和文件管理"><a href="#Linux常用指令和文件管理" class="headerlink" title="Linux常用指令和文件管理"></a>Linux常用指令和文件管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	符号常识：</span><br><span class="line">               <span class="comment">#   root用户</span></span><br><span class="line">               $   普通用户</span><br><span class="line">               ;    分隔命令，可连续执行多个命令</span><br><span class="line">               &gt;   输出重定向，并且会覆盖原有文件 </span><br><span class="line">               				ifconfig &gt; 1.txt</span><br><span class="line">               &gt;&gt;  输出重定向，在原有文件中追加内容</span><br><span class="line">               &lt;&lt;  读取文件内容</span><br><span class="line">               &amp;   后台运行符，必须和 nohup 指令一起使用</span><br><span class="line">               |   管道符</span><br><span class="line">               *   通配符</span><br><span class="line">               </span><br><span class="line">   su          切换用户</span><br><span class="line">sudo      	以root权限执行命令</span><br><span class="line"><span class="built_in">pwd</span>       	显示当前所在目录的名称</span><br><span class="line">ls -al      列出所有文件详细信息</span><br><span class="line">clear       ctrl+L  清屏</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">1.文件管理之：创建/复制/移动/删除</span><br><span class="line">==创建</span><br><span class="line">	文件 touch</span><br><span class="line">	<span class="comment"># touch file1.txt                   //无则创建，有则修改时间</span></span><br><span class="line"></span><br><span class="line">	目录 mkdir</span><br><span class="line">	<span class="comment"># mkdir dir1</span></span><br><span class="line">	<span class="comment"># mkdir /home/dir2 /home/dir3</span></span><br><span class="line">	<span class="comment"># mkdir -pv /home/dir8/111/222      //包括其父母的创建，不会有任何消息输出</span></span><br><span class="line"></span><br><span class="line">==复制 cp</span><br><span class="line">	Usage: cp [OPTION]... [-T] SOURCE DEST</span><br><span class="line">	<span class="comment">#cp -r //递归复制文件夹</span></span><br><span class="line"></span><br><span class="line">==移动 mv</span><br><span class="line">	Usage: mv [OPTION]...[-T] SOURCE DEST</span><br><span class="line">	<span class="comment"># mv file1 /home/dir3</span></span><br><span class="line">	<span class="comment"># mv file2 /home/dir3/file20       //移动并改名</span></span><br><span class="line">	<span class="comment"># mv file4 file5                   //重命名</span></span><br><span class="line"></span><br><span class="line">==删除 rm</span><br><span class="line">	示例1：</span><br><span class="line">	手动删除/home/dir1</span><br><span class="line">	<span class="comment"># cd /home         //避免手滑删除目录</span></span><br><span class="line">	<span class="comment"># rm -rf dir1      //-r 递归、-f force强制、-v 显示过程</span></span><br><span class="line">	脚本删除/home/dir1</span><br><span class="line">	rm -rf /home/dir1</span><br><span class="line"></span><br><span class="line">	示例2：</span><br><span class="line">	root@kali:~<span class="comment"># mkdir /home/dir10</span></span><br><span class="line">	root@kali:~<span class="comment"># touch /home/dir10/&#123;file2,file3,file4&#125;</span></span><br><span class="line">	root@kali:~<span class="comment"># rm -rf /home/dir10/*     //不包括隐藏文件</span></span><br><span class="line"></span><br><span class="line">2.文件管理之：查看文件内容</span><br><span class="line">==文本文件（cat less head tail grep ...）</span><br><span class="line">	cat	-n 显示行号</span><br><span class="line"></span><br><span class="line">	less more head tail tailf</span><br><span class="line">		root@kali:~<span class="comment"># head /etc/passwd</span></span><br><span class="line">		root@kali:~<span class="comment"># head -2 /etc/passwd</span></span><br><span class="line">		root@kali:~<span class="comment"># tail /etc/passwd</span></span><br><span class="line">		root@kali:~<span class="comment"># tail -2 /etc/passwd</span></span><br><span class="line">		root@kali:~<span class="comment"># tail /var/log/messages</span></span><br><span class="line">		root@kali:~<span class="comment"># tail -20 /var/log/messages</span></span><br><span class="line">		root@kali:~<span class="comment"># tail -f /var/log/secure        //-f动态查看文件的尾部</span></span><br><span class="line">		root@kali:~<span class="comment"># tail -F /var/log/secure        //-F动态查看文件的尾部</span></span><br><span class="line"></span><br><span class="line">	grep 针对文件内容进行过滤</span><br><span class="line">		<span class="comment"># grep ‘root’ /etc/passwd</span></span><br><span class="line">		<span class="comment"># grep ‘^root’ /etc/passwd</span></span><br><span class="line">		<span class="comment"># grep ‘bash$’ /etc/passwd</span></span><br><span class="line">		<span class="comment"># grep ‘failure’ /var/log/secure</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="VI-VIM编辑器"><a href="#VI-VIM编辑器" class="headerlink" title="VI/VIM编辑器"></a>VI/VIM编辑器</h3><h3 id="从命令行转换到插入"><a href="#从命令行转换到插入" class="headerlink" title="从命令行转换到插入"></a>从命令行转换到插入</h3><h4 id="切换到插入模式："><a href="#切换到插入模式：" class="headerlink" title="切换到插入模式："></a>切换到插入模式：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i, I    进入插入模式(Insert mode)：</span><br><span class="line">		i 为『从目前光标所在处插入』，</span><br><span class="line">        I 为『在目前所在行的第一个非空格符处开始插入』</span><br><span class="line">        </span><br><span class="line">a, A    进入插入模式(Insert mode)：</span><br><span class="line">		a 为『从目前光标所在的下一个字符处开始插入』， </span><br><span class="line">        A 为『从光标所在行的最后一个字符处开始插入』。</span><br><span class="line"></span><br><span class="line">o, O    进入插入模式(Insert mode)：</span><br><span class="line">		o 为『在目前光标所在的下一行处插入新的一行』； </span><br><span class="line">        O 为在目前光标所在处的上一行插入新的一行！</span><br></pre></td></tr></table></figure>
+
+<h4 id="从命令行到末行模式"><a href="#从命令行到末行模式" class="headerlink" title="从命令行到末行模式"></a>从命令行到末行模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">使用 : 来切换</span><br><span class="line"></span><br><span class="line">:<span class="built_in">set</span> nu 设置行号</span><br><span class="line">:<span class="built_in">set</span> nonu 删除行号</span><br><span class="line">:w 保存内容</span><br><span class="line">:wq 保存内容并且退出编辑器</span><br><span class="line">:q! 不保存内容直接退出编辑器</span><br></pre></td></tr></table></figure>
+
+<h4 id="从插入或者末行到命令行模式"><a href="#从插入或者末行到命令行模式" class="headerlink" title="从插入或者末行到命令行模式"></a>从插入或者末行到命令行模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esc键，任何地方切换到命令行模式</span><br></pre></td></tr></table></figure>
+
+<h4 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h4><pre><code>搜索：
+    :/word           向光标之下寻找一个名称为 word 的字符串。
+    :n   这个 n         是英文按键。代表重复前一个搜寻的动作。    
+    :%s/word1/word2/g   寻找 word1 这个字符串，并将该字符串取代为                             word2</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">删除，复制粘贴:</span><br><span class="line">    x, X    x 为向后删除一个字符</span><br><span class="line">            X 为向前删除一个字符</span><br><span class="line"></span><br><span class="line">    dd      剪切光标所在的那一整行。    </span><br><span class="line"></span><br><span class="line">    yy      复制光标所在的那一行。</span><br><span class="line"></span><br><span class="line">    p, P    p 为将已复制的数据在光标下一行粘贴，</span><br><span class="line">            P 则为贴在游标上一行。</span><br><span class="line"></span><br><span class="line">    u       复原前一个动作。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq! 不推荐，因强制退出会产生 .文件名 的临时文件，该文件会如果在服务端会被访问下载造成信息泄露不安全。如果修改配置文件则可能不会生效。</span><br></pre></td></tr></table></figure>
+
+
+                    
+                    <!-- Tags Bottom -->
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3178292787,3619418245&fm=26&gp=0.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="xxxmd5">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            本人很懒
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2019/08/02/php/">Php 基础</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/01/JS/">常用 JS BOM</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/01/javascript-dom/">JavaScript HTML DOM</a>
+        </p>
+    
+        <p>
+            <a href="/2019/07/31/javaScript/">初识 JavaScript输出 和 HTML事件</a>
+        </p>
+    
+        <p>
+            <a href="/2019/07/30/LINUX用户管理和文件权限/">LINUX用户管理和文件权限</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/XXXMD5" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                Take the world! | All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
