@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="addslashes()123456789101112addslashes(string)//作用 ==&amp;gt; 转义特殊字符，防御sql注入//返回在预定义的字符前添加反斜杠的字符串。//预定义字符是：单引号（&#39;）、双引号（&#34;）、反斜杠（\）、NULL&amp;lt;?php $str = addslas">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxmd5">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="PHP 常用函数">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XMD5 STUDY BLOG">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>PHP 常用函数 - XMD5 STUDY BLOG</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="XMD5 STUDY BLOG">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="XMD5 STUDY BLOG">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="主页">
+                    主页
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="归档">
+                    归档
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">PHP 常用函数</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-05</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+
+                    <!-- Main Post Content -->
+                    <h3 id="addslashes"><a href="#addslashes" class="headerlink" title="addslashes()"></a>addslashes()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">addslashes(string)</span><br><span class="line"><span class="comment">//作用 ==&gt; 转义特殊字符，防御sql注入</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回在预定义的字符前添加反斜杠的字符串。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//预定义字符是：单引号（'）、双引号（"）、反斜杠（\）、NULL</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$str = addslashes(<span class="string">'What does "yolo" mean?'</span>);</span><br><span class="line"><span class="keyword">echo</span>($str); </span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 输出： What does \"yolo\" mean?</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="bin2hex"><a href="#bin2hex" class="headerlink" title="bin2hex()"></a>bin2hex()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bin2hex(string)</span><br><span class="line"><span class="comment">//把 ASCII 字符的字符串转换为十六进制值</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">echo</span> bin2hex(<span class="string">"\n"</span>); <span class="comment">// ascii码  计算ascii码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$str = bin2hex(<span class="string">"Hello World!"</span>);</span><br><span class="line"><span class="keyword">echo</span>($str); </span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//输出： 48656c6c6f20576f726c6421</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="chr"><a href="#chr" class="headerlink" title="chr()"></a>chr()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从指定 ASCII 值返回字符。</span></span><br><span class="line"><span class="comment">//ASCII 值可被指定为十进制值、八进制值或十六进制值。八进制值被定义为带前置 0，十六进制值被定义为带前置 0x</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// chr(ascii)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="crypt"><a href="#crypt" class="headerlink" title="crypt()"></a>crypt()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// crypt(str,salt)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回加密字符串，如果失败则返回一个小于 13 个字符并保证不同于 salt 的字符串。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 加密函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// md5('password');  // md5 hash计算</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="explode"><a href="#explode" class="headerlink" title="explode()"></a>explode()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用一个字符串分割另一个字符串，</span></span><br><span class="line"><span class="comment">// 并返回由字符串组成的数组。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$str = <span class="string">"www.runoob.com"</span>;</span><br><span class="line">print_r (explode(<span class="string">"."</span>,$str));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="implode"><a href="#implode" class="headerlink" title="implode()"></a>implode()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回一个由数组元素组合成的字符串。</span></span><br><span class="line"><span class="comment">// implode(separator,array)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">'Hello'</span>,<span class="string">'World!'</span>,<span class="string">'Beautiful'</span>,<span class="string">'Day!'</span>);</span><br><span class="line"><span class="keyword">echo</span> implode(<span class="string">" "</span>,$arr);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="htmlspecialchars"><a href="#htmlspecialchars" class="headerlink" title="htmlspecialchars()"></a>htmlspecialchars()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="str-ireplace"><a href="#str-ireplace" class="headerlink" title="str_ireplace()"></a>str_ireplace()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr()"></a>strchr()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="mb-substr"><a href="#mb-substr" class="headerlink" title="mb_substr()"></a>mb_substr()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">$payload = <span class="string">'&lt;img src="a" onerror="alert(1)"&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//echo $payload;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> htmlspecialchars($payload); <span class="comment">// ' " &lt;  &gt; &amp;  转义特殊字符为html实体编码，防御xss</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> str_ireplace(<span class="string">'ABc'</span>, <span class="string">'hello'</span>, <span class="string">'abc zs!'</span>);  <span class="comment">// 不区分大小写，替换字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> strchr(<span class="string">'abc zs!dnkjfns'</span>, <span class="string">'zs'</span>);  <span class="comment">//  查找字符串，并且返回字符串之后的所有内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> strcmp(<span class="string">"Hello world!"</span>,<span class="string">"Hello world?"</span>);   <span class="comment">// 比较字符串，区分大消息，二进制安全，相同结果为0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line">$a = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> strlen($a);   <span class="comment">// 计算字符串长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> substr(<span class="string">"Hello World !"</span>,<span class="number">0</span>, <span class="number">5</span>);  <span class="comment">// 字符串截取，按照`位`截取</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> mb_substr(<span class="string">"abc你好!菜鸟！"</span>,<span class="number">0</span>, <span class="number">4</span>);   <span class="comment">// 字符串截取，按照`字`截取</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);  <span class="comment">// 将16进制转换为字符</span></span><br><span class="line"></span><br><span class="line">$str = <span class="string">"    Hello World!\t   "</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> trim($str);  <span class="comment">//去除两侧空白字符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> chr(<span class="number">0x0a</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+                    
+                    <!-- Tags Bottom -->
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3178292787,3619418245&fm=26&gp=0.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="xxxmd5">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            本人很懒
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2019/08/06/20190805/">20190805作业</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/05/php常用函数/">PHP 常用函数</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/03/homework3/">周末作业</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/02/php/">Php 基础</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/01/JS/">常用 JS BOM</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/XXXMD5" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                Take the world! | All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
