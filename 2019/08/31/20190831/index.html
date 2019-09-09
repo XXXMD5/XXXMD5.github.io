@@ -10,9 +10,9 @@
 
     <!--Description-->
     
-        <meta name="description" content="用户管理/etc/passwd     用户信息/etc/group      组信息/etc/shadow     密码相关
-root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登录后启动的脚本
-​    root:x:0:​   ">
+        <meta name="description" content="简介请求头注入12服务端接收客户端发送的数据，当需要操作客户端数据包请求头时，在没过滤的情况下，将相关数据代入数据库中进行操作，从而产生注入，比如XFF头里的ip值
+
+二次注入12用户第一次提交的数据被存入数据库中，在允许 &amp;apos; 和 &amp;quot; 存入数据库的前提下，就算存储前进行了转义过滤">
     
 
     <!--Author-->
@@ -22,7 +22,7 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="LINUX用户管理和文件权限">
+        <meta property="og:title" content="请求头注入和二次注入">
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
 
     <!-- Title -->
     
-    <title>LINUX用户管理和文件权限 - XMD5 STUDY BLOG</title>
+    <title>请求头注入和二次注入 - XMD5 STUDY BLOG</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -100,8 +100,8 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">LINUX用户管理和文件权限</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-07-30</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">请求头注入和二次注入</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-31</p>
         </div>
     </div>
 
@@ -121,30 +121,10 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
                     
 
                     <!-- Main Post Content -->
-                    <h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><p>/etc/passwd     用户信息<br>/etc/group      组信息<br>/etc/shadow     密码相关</p>
-<p>root:x:0:0:root:/root:/bin/bash<br>用户名  x  uid  gid  名字  家目录   登录后启动的脚本</p>
-<p>​    root:x:0:<br>​    组名字   x   gid  组员</p>
-<p>​    root:$6$Xf7Mz580:17750:0:99999:7:::</p>
-<p>​    用户名     密码   。。。</p>
-<p>useradd    添加用户    useradd zs</p>
-<p>userdel    删除用户<br>userdel  -r   zs   删除用户所有信息</p>
-<p>usermod    修改用户信息<br>usermod -s  /sbin/nologin  锁定登录脚本<br>usermod -d  /home/123 修改家目录<br>usermod -G -a root zs   把zs用户加入到root组</p>
-<p>groupadd   添加一个组</p>
-<p>groupdel   删除一个组</p>
-<p>groupmod   修改一个组<br>groupmod -g 123 zs   修改zs组的gid为123<br>groupmod -n ls zs    修改zs组的名字为ls</p>
-<p>passwd   修改密码<br>passwd root  修改root的密码</p>
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p>-rw-r–r–</p>
-<h4 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h4><ul>
-<li>普通文件<br>d    文件夹/目录<br>b/c  驱动等硬件设备<br>l    链接文件</li>
-</ul>
-<h4 id="文件权限-1"><a href="#文件权限-1" class="headerlink" title="文件权限"></a>文件权限</h4><p>​        r   针对文件   读/可以查看文件内容    针对文件夹  读/可以列出问价夹里面的内容<br>​        w   针对文件   写/可以修改文件内容    针对文件夹  读/可以创建文件<br>​        x   针对文件   读/可以执行           针对文件夹  读/可以切换到目录</p>
-<p>​        rwx =&gt;  421</p>
-<p>​        chmod 777 a.txt<br>​        chmod a+x a.txt</p>
-<pre><code>a/u/g/o  +/-/=  r/w/x
-655
--R      //修改文件夹下所有的文件</code></pre><p>​        chown   apache:apache   a.txt<br>            -R   修改文件夹下所有的文件</p>
-<p>三部分 : - rw-r–r–</p>
-<p>​            第一部分  前三个 针对于所属用户<br>​            第二部分  中间三个针对于所属组<br>​            第三部分  最后三个针对于其他用户</p>
+                    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="请求头注入"><a href="#请求头注入" class="headerlink" title="请求头注入"></a>请求头注入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">服务端接收客户端发送的数据，当需要操作客户端数据包请求头时，</span><br><span class="line">在没过滤的情况下，将相关数据代入数据库中进行操作，从而产生注入，比如XFF头里的ip值</span><br></pre></td></tr></table></figure>
+
+<h4 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户第一次提交的数据被存入数据库中，在允许 &apos; 和 &quot; 存入数据库的前提下，就算存储前进行了转义过滤，但到数据库中后，转义符是不带入数据库中的，相当于数据在数据库中被还原。</span><br><span class="line">当服务端将用户存储的数据取出来，在没有过滤的前提下，直接代入数据库中进行操作，就会产生注入。</span><br></pre></td></tr></table></figure>
+
 
                     
                     <!-- Tags Bottom -->

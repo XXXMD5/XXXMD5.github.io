@@ -10,9 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="用户管理/etc/passwd     用户信息/etc/group      组信息/etc/shadow     密码相关
-root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登录后启动的脚本
-​    root:x:0:​   ">
+        <meta name="description" content="GB2312/GBK编码   两个十六进制数组成一个汉字UTF8编码                 三个十六进制数组成一个汉字使用 addslash() 函数过滤特殊字符时，会产生 &amp;#39;、\“ 等，对应的16进制为 5c27、5c22
+在GBK编码中，df5c—運、815c—乗，能解析出一个">
     
 
     <!--Author-->
@@ -22,7 +21,7 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="LINUX用户管理和文件权限">
+        <meta property="og:title" content="宽字节注入">
     
 
     <!--Open Graph Description-->
@@ -44,7 +43,7 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
 
     <!-- Title -->
     
-    <title>LINUX用户管理和文件权限 - XMD5 STUDY BLOG</title>
+    <title>宽字节注入 - XMD5 STUDY BLOG</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
@@ -100,8 +99,8 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">LINUX用户管理和文件权限</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-07-30</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">宽字节注入</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2019-08-27</p>
         </div>
     </div>
 
@@ -119,35 +118,26 @@ root:x:0:0:root:/root:/bin/bash用户名  x  uid  gid  名字  家目录   登�
                 <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
                     <!-- Tags Vertical -->
                     
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/sql注入/">#sql注入</a>
+                            </div>
+                        </div>
+                    
 
                     <!-- Main Post Content -->
-                    <h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><p>/etc/passwd     用户信息<br>/etc/group      组信息<br>/etc/shadow     密码相关</p>
-<p>root:x:0:0:root:/root:/bin/bash<br>用户名  x  uid  gid  名字  家目录   登录后启动的脚本</p>
-<p>​    root:x:0:<br>​    组名字   x   gid  组员</p>
-<p>​    root:$6$Xf7Mz580:17750:0:99999:7:::</p>
-<p>​    用户名     密码   。。。</p>
-<p>useradd    添加用户    useradd zs</p>
-<p>userdel    删除用户<br>userdel  -r   zs   删除用户所有信息</p>
-<p>usermod    修改用户信息<br>usermod -s  /sbin/nologin  锁定登录脚本<br>usermod -d  /home/123 修改家目录<br>usermod -G -a root zs   把zs用户加入到root组</p>
-<p>groupadd   添加一个组</p>
-<p>groupdel   删除一个组</p>
-<p>groupmod   修改一个组<br>groupmod -g 123 zs   修改zs组的gid为123<br>groupmod -n ls zs    修改zs组的名字为ls</p>
-<p>passwd   修改密码<br>passwd root  修改root的密码</p>
-<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p>-rw-r–r–</p>
-<h4 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h4><ul>
-<li>普通文件<br>d    文件夹/目录<br>b/c  驱动等硬件设备<br>l    链接文件</li>
-</ul>
-<h4 id="文件权限-1"><a href="#文件权限-1" class="headerlink" title="文件权限"></a>文件权限</h4><p>​        r   针对文件   读/可以查看文件内容    针对文件夹  读/可以列出问价夹里面的内容<br>​        w   针对文件   写/可以修改文件内容    针对文件夹  读/可以创建文件<br>​        x   针对文件   读/可以执行           针对文件夹  读/可以切换到目录</p>
-<p>​        rwx =&gt;  421</p>
-<p>​        chmod 777 a.txt<br>​        chmod a+x a.txt</p>
-<pre><code>a/u/g/o  +/-/=  r/w/x
-655
--R      //修改文件夹下所有的文件</code></pre><p>​        chown   apache:apache   a.txt<br>            -R   修改文件夹下所有的文件</p>
-<p>三部分 : - rw-r–r–</p>
-<p>​            第一部分  前三个 针对于所属用户<br>​            第二部分  中间三个针对于所属组<br>​            第三部分  最后三个针对于其他用户</p>
+                    <h5 id="GB2312-GBK编码-两个十六进制数组成一个汉字"><a href="#GB2312-GBK编码-两个十六进制数组成一个汉字" class="headerlink" title="GB2312/GBK编码   两个十六进制数组成一个汉字"></a>GB2312/GBK编码   两个十六进制数组成一个汉字</h5><h5 id="UTF8编码-三个十六进制数组成一个汉字"><a href="#UTF8编码-三个十六进制数组成一个汉字" class="headerlink" title="UTF8编码                 三个十六进制数组成一个汉字"></a>UTF8编码                 三个十六进制数组成一个汉字</h5><p>使用 addslash() 函数过滤特殊字符时，会产生 &#39;、\“ 等，对应的16进制为 5c27、5c22</p>
+<p>在GBK编码中，df5c—運、815c—乗，能解析出一个字符，将  \ 符吃掉，就不能转义特殊字符</p>
+<p>utf8中三个字符一起组合，没有和5c一起组成一个字符的，不存在宽字节注入</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在URL中</span><br><span class="line">传递 %df%27 或 %81%27 到后端，在使用GBK编码的情况下，addslashes()将%27转义成了5c27</span><br><span class="line">然后 df5c 或 815c 被解析成字符，转义失效</span><br><span class="line">在此情况下，将数据代入数据库中进行操作，产生注入</span><br></pre></td></tr></table></figure>
+
 
                     
                     <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/sql注入/">#sql注入</a>
+                        </div>
                     
 
                     <!-- Comments -->
